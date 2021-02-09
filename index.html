@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mars Weather</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Scripts -->
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="mars-current-weather">
+      <h1 class="main-title">latest weather at elysium plantitia</h1>
+      <div class="date">
+        <h2 class="section-title section-title--date">
+          Sol <span data-current-sol></span>
+        </h2>
+        <p class="date__day reading"><span data-current-sol-date></span></p>
+      </div>
+      <div class="temp">
+        <h2 class="section-title">Temperature</h2>
+        <p class="reading">
+          High: <span data-current-sol-max-temp></span>&deg;<span class="temp-unit">C</span>
+        </p>
+        <p class="reading">
+          Slow: <span data-current-sol-min-temp></span>&deg;<span class="temp-unit">C</span>
+        </p>
+      </div>
+      <div class="wind">
+        <div class="wind__direction">
+          <p class="sr-only">45deg</p>
+          <div class="wind__arrow"></div>
+        </div>
+        <div>
+          <h2 class="section-title">Wind</h2>
+          <p class="reading reading--wind">75kph</p>
+        </div>
+      </div>
+      <div class="info">
+        <p>
+          InSight is taking daily weather measurements (temperature, wind,
+          pressure) on the surface of Mars at Elysium Planitia, a flat, smooth
+          plain near Mars’ equator.
+        </p>
+        <p>
+          This is only a part of InSight’s mission.
+          <a target="_blank" href="https://api.nasa.gov/assets/insight/InSight%20Weather%20API%20Documentation.pdf">Click here</a> to find out more.
+        </p>
+      </div>
+      <div class="unit">
+        <label data-unit-celsius="" for="c">C&deg;</label>
+        <input type="radio" name="unit" id="c" checked />
+        <!-- Change unit when toggle -->
+        <button class="unit__toggle"></button>
+        <label data-unit-fahrenheit for="f">F&deg;</label>
+        <input type="radio" name="unit" id="f" />
+      </div>
+    </main>
+    <div class="mars-previous-weather">
+      <button class="show-previous-weather-label"><span>&#8593;</span></button>
+      <h2 class="main-title">previous 7 days</h2>
+      <div class="previous-days" data-previous-days></div>
+
+      <template  data-previous-day-template>
+        <div class="previous-day">
+          <h3 class="previous-day__sol">Sol <span data-sol></span></h3>
+          <p class="previous-day__date" data-sol-date></p>
+          <p class="previous-day__temp">
+            High: <span data-sol-max-temp></span>&deg;
+          </p>
+          <p class="previous-day__temp">
+            Low: <span data-sol-min-temp></span>&deg;
+          </p>
+          <a href="#">more info</a>
+        </div>
+      </template>
+    </div>
+  </body>
+</html>
